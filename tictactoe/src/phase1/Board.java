@@ -41,4 +41,12 @@ public class Board {
 			boxes[i].print();
 		}
 	}
+	boolean makeMove(String mark, int row, int col) {
+		if (row < 0 || row >= 3 || col < 0 || col >= 3 || !boxes[row*3+col].equals(Box.DASH)) {
+            System.out.println("Invalid move. Please try again.");
+            return false;
+        } else {
+        	return true;
+        }
+	}
 }
