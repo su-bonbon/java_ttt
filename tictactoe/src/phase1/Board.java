@@ -42,11 +42,41 @@ public class Board {
 		}
 	}
 	boolean makeMove(String mark, int row, int col) {
-		if (row < 0 || row >= 3 || col < 0 || col >= 3 || !boxes[row*3+col].equals(Box.DASH)) {
-            System.out.println("Invalid move. Please try again.");
+		if (row < 0 || row >= boardRowSize || col < 0 || col >= boardColSize) {
+            System.out.println("Invalid move. Row and column out of bounds.");
             return false;
+        }
+
+        Box box = boxes[row*3+col];
+        if (box.isAvailable()) {
+            box.setPlaceHolder(mark);
+            return true;  // Move was successful
         } else {
-        	return true;
+            System.out.println("The box is already occupied. Please choose another position.");
+            return false;  // Move was unsuccessful
         }
 	}
+	
+	boolean isFull() {
+        for (int i = 0; i < boardRowSize; i++) {
+            if (boxes[i].isAvailable()) {
+                    return false;  // Found an empty box, board is not full
+            }
+        }
+        return true;  // All boxes are occupied, board is full
+    }
+	
+	boolean checkWin(String mark) {
+           if (boxes[0].getPlaceHolder().equals(mark) && boxes[1].getPlaceHolder().equals(mark) && boxes[2].getPlaceHolder().equals(mark) ||
+        	   boxes[3].getPlaceHolder().equals(mark) && boxes[4].getPlaceHolder().equals(mark) && boxes[5].getPlaceHolder().equals(mark) ||
+        	   boxes[6].getPlaceHolder().equals(mark) && boxes[7].getPlaceHolder().equals(mark) && boxes[8].getPlaceHolder().equals(mark) ||
+        	   boxes[0].getPlaceHolder().equals(mark) && boxes[4].getPlaceHolder().equals(mark) && boxes[7].getPlaceHolder().equals(mark) ||
+        	   boxes[2].getPlaceHolder().equals(mark) && boxes[4].getPlaceHolder().equals(mark) && boxes[6].getPlaceHolder().equals(mark)) {
+                return true;  // Mark has won in this row
+           } else {
+        	   return false;
+           }
+    }
+
+    
 }

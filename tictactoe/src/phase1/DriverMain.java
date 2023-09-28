@@ -1,9 +1,10 @@
 package phase1;
 
 public class DriverMain {
-
-	tttGame game = new tttGame();
-		
-	game.start();
+	public static void main(String[] args) {
+		tttGame game = new tttGame();
+			
+		game.start();
+	}
 
 }

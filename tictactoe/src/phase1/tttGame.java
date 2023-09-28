@@ -39,21 +39,28 @@ public class tttGame {
 			switchPlayer();
 			while(!this.board.makeMove(players[currentPlayerIndex].getMark(), 
 					players[currentPlayerIndex].randomNumber(gameRowSize), 
-					players[currentPlayerIndex].randomNumber(gameColSize)) {
-				//make move
+					players[currentPlayerIndex].randomNumber(gameColSize))) {
+				print();
 			}
 		}while(!gameover());
 		print();
 	}
 	
 	private boolean gameover() {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.board.isFull() || this.board.checkWin(players[currentPlayerIndex].getMark())) { 
+			return true;
+		} else {
+				 
+			return false;
+		}
 	}
 
 	private void switchPlayer() {
-		// TODO Auto-generated method stub
-		
+		if(currentPlayerIndex<2) {
+			currentPlayerIndex++;
+		} else {
+			currentPlayerIndex = 0;
+		}
 	}
 
 	private void print() {

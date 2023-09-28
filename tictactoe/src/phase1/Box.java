@@ -26,7 +26,7 @@ public class Box {
 	boolean isAvailable() {
 		return this.placeHolder.equals(Box.DASH);
 	}
-
+	
 	void print() {
 		System.out.print(this.placeHolder + " ");
 	}
