@@ -24,4 +24,9 @@ public class Player {
 	void setMark(String mark) {
 		this.mark = mark;
 	}
+
+	int randomNumber(int num1) {
+		int randNum = (int)Math.round(num1 * Math.random());
+		return randNum;
+	}
 }
