@@ -5,6 +5,10 @@ public abstract class APlayer {
 	private String name;
 	private String mark;
 	
+	APlayer(){
+		
+	}
+
 	APlayer(String name, String mark){
 		
 	}

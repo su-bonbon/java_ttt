@@ -17,7 +17,7 @@ public class tttGame {
 
 	private void setPlayer() {
 		for(int i  = 0; i < players.length; i++) {
-			players[i] = new APlayer("player1" + i + 1, marks[i]);
+			players[i] = new HumanPlayer();
 		}
 		
 	}
