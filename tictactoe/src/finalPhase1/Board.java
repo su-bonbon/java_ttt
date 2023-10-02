@@ -1,4 +1,4 @@
-package phase1;
+package finalPhase1;
 
 public class Board {
 
@@ -46,10 +46,8 @@ public class Board {
             System.out.println("Invalid move. Row and column out of bounds.");
             return false;
         }
-
-        Box box = boxes[row*3+col];
-        if (box.isAvailable()) {
-            box.setPlaceHolder(mark);
+        if (boxes[row*3+col].isAvailable()) {
+        	boxes[row*3+col].setPlaceHolder(mark);
             return true;  // Move was successful
         } else {
             System.out.println("The box is already occupied. Please choose another position.");

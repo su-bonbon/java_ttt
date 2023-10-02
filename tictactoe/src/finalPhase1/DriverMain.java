@@ -1,4 +1,4 @@
-package phase1;
+package finalPhase1;
 
 public class DriverMain {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package phase1;
+package finalPhase1;
 
 public class Box {
 	private int row;

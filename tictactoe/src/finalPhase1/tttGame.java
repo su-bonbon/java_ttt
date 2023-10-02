@@ -1,8 +1,8 @@
-package phase1;
+package finalPhase1;
 
 public class tttGame {
 
-	private Player[] players = new Player[2];
+	private APlayer[] players = new APlayer[2];
 	private Board board;
 	private String[] marks = {"X", "O"};
 	private String name = "TicTacToe";
@@ -17,7 +17,7 @@ public class tttGame {
 
 	private void setPlayer() {
 		for(int i  = 0; i < players.length; i++) {
-			players[i] = new Player("player1" + i + 1, marks[i]);
+			players[i] = new APlayer("player1" + i + 1, marks[i]);
 		}
 		
 	}
