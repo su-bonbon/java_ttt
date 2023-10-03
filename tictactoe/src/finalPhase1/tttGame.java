@@ -9,6 +9,7 @@ public class tttGame {
 	private int currentPlayerIndex = -1;
 	private int gameRowSize;
 	private int gameColSize;
+	private int gameScoreToWin = 3;
 	
 	public tttGame() {
 		setPlayer();
@@ -53,7 +54,7 @@ public class tttGame {
 			return true;
 		} else if(board.isFull()) {
 			System.out.println("TIE");
-			return true
+			return true;
 		}
 		return false;
 	}
@@ -73,12 +74,28 @@ public class tttGame {
 	}
 
 	private boolean checkDiagRL() {
-		// TODO Auto-generated method stub
+		int count = 0;
+		for(int row = 0, col = 0; col < this.gameColSize && row < this.gameRowSize; row++, col++) {
+			if(board.getMark(row, col).equals(players[currentPlayerIndex].getMark())) {
+				count++;
+			}
+		}
+		if(count == this.gameScoreToWin) {
+			return true;
+		}
 		return false;
 	}
 
 	private boolean checkDiagLR() {
-		// TODO Auto-generated method stub
+		int count = 0;
+		for(int row = 0, col = (this.gameRowSize - 1); row < this.gameColSize && col >= 0; row++, col--) {
+			if(board.getMark(row, col).equals(players[currentPlayerIndex].getMark())) {
+				count++;
+			}
+		}
+		if(count == this.gameScoreToWin) {
+			return true;
+		}
 		return false;
 	}
 

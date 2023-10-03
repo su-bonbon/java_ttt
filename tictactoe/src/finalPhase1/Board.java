@@ -1,6 +1,6 @@
 package finalPhase1;
 
-public class Board {
+public class Board implements Iboard {
 
 	private Box[] boxes;
 	private String name;
