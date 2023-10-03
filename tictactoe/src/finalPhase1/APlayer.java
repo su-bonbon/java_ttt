@@ -10,7 +10,8 @@ public abstract class APlayer {
 	}
 
 	APlayer(String name, String mark){
-		
+		this.setName(name);
+		this.setMark(mark);
 	}
 
 	String getName() {
@@ -31,8 +32,9 @@ public abstract class APlayer {
 	
 	abstract int selectRowValue(int range);
 	abstract int selectColValue(int range);
-//	public int randomNumber(int num1) {
-//		int randNum = (int)Math.round(num1 * Math.random());
-//		return randNum;
-//	}
+	
+	public int randomNumber(int num1) {
+		int randNum = (int)Math.round(num1 * Math.random());
+		return randNum;
+	}
 }
