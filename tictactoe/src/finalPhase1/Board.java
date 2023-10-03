@@ -22,6 +22,10 @@ public class Board {
 		this.name = name;
 	}
 	
+	String getMark(int row, int col) {
+		return this.boxes[row*3+col].getPlaceHolder();
+	}
+	
 	private void setSize(int row, int col) {
 		this.boardRowSize = row;
 		this.boardColSize = col;
