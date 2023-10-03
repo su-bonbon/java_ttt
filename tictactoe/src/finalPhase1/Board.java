@@ -46,26 +46,16 @@ public class Board {
 		}
 	}
 	boolean makeMove(String mark, int row, int col) {
-		if (row < 0 || row >= boardRowSize || col < 0 || col >= boardColSize) {
-            System.out.println("Invalid move. Row and column out of bounds.");
-            return false;
-        }
-        if (boxes[row*3+col].isAvailable()) {
-        	boxes[row*3+col].setPlaceHolder(mark);
-            return true;  // Move was successful
-        } else {
-            System.out.println("The box is already occupied. Please choose another position.");
-            return false;  // Move was unsuccessful
-        }
+		return boxes[row * this.boardRowSize + col].setPlaceHolder(mark);
 	}
 	
 	boolean isFull() {
-        for (int i = 0; i < boardRowSize; i++) {
-            if (boxes[i].isAvailable()) {
-                    return false;  // Found an empty box, board is not full
-            }
+        for(Box b : boxes) {
+        	if(b.isAvailable()) {
+        		return false;
+        	}
         }
-        return true;  // All boxes are occupied, board is full
+        return true;
     }
 	
 	boolean checkWin(String mark) {
