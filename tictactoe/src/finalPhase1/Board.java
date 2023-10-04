@@ -15,23 +15,36 @@ public class Board implements Iboard {
 		this.setSize(boardRowSize, boardColSize);
 		init();
 	}
-	String getName() {
+	
+	public int getBoardRowSize() {
+		return boardRowSize;
+	}
+	public void setBoardRowSize(int boardRowSize) {
+		this.boardRowSize = boardRowSize;
+	}
+	public int getBoardColSize() {
+		return boardColSize;
+	}
+	public void setBoardColSize(int boardColSize) {
+		this.boardColSize = boardColSize;
+	}
+	public String getName() {
 		return name;
 	}
-	void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	
-	String getMark(int row, int col) {
+	public String getMark(int row, int col) {
 		return this.boxes[row*3+col].getPlaceHolder();
 	}
 	
-	private void setSize(int row, int col) {
+	public void setSize(int row, int col) {
 		this.boardRowSize = row;
 		this.boardColSize = col;
 	}
 	
-	void init() {
+	public void init() {
 		Box[] boxes = new Box[this.boardRowSize * boardColSize];
 		for(int i = 0; i < boxes.length; i++) {
 			Box b = new Box(i/boardRowSize, i%boardColSize);
@@ -39,17 +52,17 @@ public class Board implements Iboard {
 		}
 	}
 	
-	void print() {
+	public void print() {
 		for(int i = 0; i < boxes.length; i++) {
 			if(i!=0 && i%boardRowSize == 0)  System.out.println();
 			boxes[i].print();
 		}
 	}
-	boolean makeMove(String mark, int row, int col) {
+	public boolean makeMove(String mark, int row, int col) {
 		return boxes[row * this.boardRowSize + col].setPlaceHolder(mark);
 	}
 	
-	boolean isFull() {
+	public boolean isFull() {
         for(Box b : boxes) {
         	if(b.isAvailable()) {
         		return false;
@@ -58,7 +71,7 @@ public class Board implements Iboard {
         return true;
     }
 	
-	boolean checkWin(String mark) {
+	public boolean checkWin(String mark) {
            if (boxes[0].getPlaceHolder().equals(mark) && boxes[1].getPlaceHolder().equals(mark) && boxes[2].getPlaceHolder().equals(mark) ||
         	   boxes[3].getPlaceHolder().equals(mark) && boxes[4].getPlaceHolder().equals(mark) && boxes[5].getPlaceHolder().equals(mark) ||
         	   boxes[6].getPlaceHolder().equals(mark) && boxes[7].getPlaceHolder().equals(mark) && boxes[8].getPlaceHolder().equals(mark) ||

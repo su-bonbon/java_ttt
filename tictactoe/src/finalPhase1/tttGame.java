@@ -2,7 +2,7 @@ package finalPhase1;
 
 public class tttGame {
 
-	private HumanPlayer[] players = new HumanPlayer[2];
+	private APlayer[] players = new APlayer[2];
 	private Board board;
 	private String[] marks = {"X", "O"};
 	private String name = "TicTacToe";
@@ -27,6 +27,13 @@ public class tttGame {
 	private void setBoard() {
 		this.board = new Board();
 	}
+	public void setBoard(Iboard board) {
+		this.board = board;
+	}
+	public void setPlayer(APlayer player1, APlayer player2) {
+		players[0] = player1;
+		players[1] = player2;
+	}
 	
 	/**
 	 * 1- start the game
@@ -40,8 +47,8 @@ public class tttGame {
 		do {
 			switchPlayer();
 			while(!this.board.makeMove(players[currentPlayerIndex].getMark(), 
-					players[currentPlayerIndex].randomNumber(gameRowSize), 
-					players[currentPlayerIndex].randomNumber(gameColSize))) {
+					players[currentPlayerIndex].selectRowValue(gameRowSize), 
+					players[currentPlayerIndex].selectColValue(gameColSize))) {
 				print();
 			}
 		}while(!gameover());
