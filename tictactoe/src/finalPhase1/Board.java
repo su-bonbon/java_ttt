@@ -45,11 +45,12 @@ public class Board implements Iboard {
 	}
 	
 	public void init() {
-		Box[] boxes = new Box[this.boardRowSize * boardColSize];
+		this.boxes = new Box[this.boardRowSize * boardColSize];
 		for(int i = 0; i < boxes.length; i++) {
 			Box b = new Box(i/boardRowSize, i%boardColSize);
 			boxes[i] = b;
 		}
+		this.print();
 	}
 	
 	public void print() {

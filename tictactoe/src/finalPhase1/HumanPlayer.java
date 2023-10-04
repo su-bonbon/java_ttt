@@ -10,6 +10,7 @@ public class HumanPlayer extends APlayer{
 	public HumanPlayer(String name, String mark) {
 		super(name, mark);
 	}
+	@Override
 	public int selectRowValue(int range) {
 		System.out.println("\nplease enter a valid row number (0 to " + range + ")");
 		int row;
@@ -18,6 +19,7 @@ public class HumanPlayer extends APlayer{
 		}while(row < 0 && row > range);
 		return row;
 	}
+	@Override
 	public int selectColValue(int range) {
 		System.out.println("\nplease enter a valid column number (0 to " + range + ")");
 		int col;

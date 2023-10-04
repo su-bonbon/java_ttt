@@ -3,12 +3,12 @@ package finalPhase1;
 public class tttGame {
 
 	private APlayer[] players = new APlayer[2];
-	private Board board;
+	private Iboard board;
 	private String[] marks = {"X", "O"};
 	private String name = "TicTacToe";
 	private int currentPlayerIndex = -1;
-	private int gameRowSize;
-	private int gameColSize;
+	private int gameRowSize = 3;
+	private int gameColSize = 3;
 	private int gameScoreToWin = 3;
 	
 	public tttGame() {
@@ -18,8 +18,8 @@ public class tttGame {
 
 	private void setPlayer() {
 		for(int i  = 0; i < players.length; i++) {
-			HumanPlayer hp = new HumanPlayer("player" + i+1, marks[i]); 
-			players[i] = hp;
+			ComputerPlayer cp = new ComputerPlayer("player" + i+1, marks[i]); 
+			players[i] = cp;
 		}
 		
 	}
@@ -43,12 +43,13 @@ public class tttGame {
 	 * 5- stopping rule
 	 */
 	public void start() {
-		System.out.println("game started...");
+		System.out.println("\ngame started...");
 		do {
 			switchPlayer();
 			while(!this.board.makeMove(players[currentPlayerIndex].getMark(), 
 					players[currentPlayerIndex].selectRowValue(gameRowSize), 
 					players[currentPlayerIndex].selectColValue(gameColSize))) {
+				System.out.println();
 				print();
 			}
 		}while(!gameover());
@@ -57,10 +58,10 @@ public class tttGame {
 	
 	private boolean gameover() {
 		if(isWinner()) {
-			System.out.println(this.marks[this.currentPlayerIndex] + " is Winner!");
+			System.out.println("\n" +this.marks[this.currentPlayerIndex] + " is Winner!");
 			return true;
 		} else if(board.isFull()) {
-			System.out.println("TIE");
+			System.out.println("\nTIE");
 			return true;
 		}
 		return false;

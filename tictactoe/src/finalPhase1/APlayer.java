@@ -6,7 +6,7 @@ public abstract class APlayer {
 	private String mark;
 	
 	APlayer(){
-		
+		this("default", "v");
 	}
 
 	public APlayer(String name, String mark){

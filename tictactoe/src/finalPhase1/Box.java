@@ -6,16 +6,17 @@ public class Box {
 	private String placeHolder = Box.DASH;
 	public final static String DASH = "-";
 	
-	Box(int row, int col){
+	public Box(int row, int col){
 		this.row = row;
 		this.col = col;
+		this.placeHolder = DASH;
 	}
 
-	String getPlaceHolder() {
+	public String getPlaceHolder() {
 		return placeHolder;
 	}
 
-	boolean setPlaceHolder(String placeHolder) {
+	public boolean setPlaceHolder(String placeHolder) {
 		if(isAvailable()) {
 			this.placeHolder = placeHolder;
 			return true;
@@ -23,11 +24,11 @@ public class Box {
 		return false;
 	}
 	
-	boolean isAvailable() {
+	public boolean isAvailable() {
 		return this.placeHolder.equals(Box.DASH);
 	}
 	
-	void print() {
+	public void print() {
 		System.out.print(this.placeHolder + " ");
 	}
 	
