@@ -1,6 +1,6 @@
 package finalPhase1;
 
-public class OtherBoardWrapper {
+public class OtherBoardWrapper implements Iboard {
 	
-	OtherBoard myboard = new OtherBoard();
+	OtherBoard otherBoard = new OtherBoard();
 }
