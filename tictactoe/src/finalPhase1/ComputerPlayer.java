@@ -8,8 +8,13 @@ public class ComputerPlayer extends APlayer{
 		super(name, mark);
 	}
 	
-	private int randomNumber(int range) { 
-		return (int) (Math.random() * range);
+//	private int randomNumber(int range) { 
+//		return (int) (Math.random() * range);
+//	}
+	
+	public int randomNumber(int num1) {
+		int randNum = (int)Math.round(num1 * Math.random());
+		return randNum;
 	}
 	
 	public int selectRowValue(int range) {

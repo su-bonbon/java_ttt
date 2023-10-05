@@ -50,11 +50,11 @@ public class Board implements Iboard {
 			Box b = new Box(i/boardRowSize, i%boardColSize);
 			boxes[i] = b;
 		}
-		this.print();
+		//this.print();
 	}
 	
 	public void print() {
-		//System.out.println("l");
+		System.out.println();
 		for(int i = 0; i < boxes.length; i++) {
 			if(i!=0 && i%boardRowSize == 0) {
 				System.out.println();

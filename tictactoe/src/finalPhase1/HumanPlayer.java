@@ -12,18 +12,18 @@ public class HumanPlayer extends APlayer{
 	}
 	@Override
 	public int selectRowValue(int range) {
-		System.out.println("\nplease enter a valid row number (0 to " + range + ")");
+		System.out.println("\nPlayer " + getMark() + ": please enter a valid row number (0 to " + range + ")");
 		int row;
 		
 		do {
 			row = input.nextInt();
-		}while(row < 0 && row > range);
+		} while(row < 0 && row > range);
 		
 		return row;
 	}
 	@Override
 	public int selectColValue(int range) {
-		System.out.println("\nplease enter a valid column number (0 to " + range + ")");
+		System.out.println("\nPlayer " +  getMark() +": please enter a valid column number (0 to " + range + ")");
 		int col;
 		do {
 			col = input.nextInt();

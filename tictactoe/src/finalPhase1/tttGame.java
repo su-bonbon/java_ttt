@@ -18,7 +18,7 @@ public class tttGame {
 
 	private void setPlayer() {
 		for(int i  = 0; i < players.length; i++) {
-			HumanPlayer cp = new HumanPlayer("player" + i+1, marks[i]); 
+			ComputerPlayer cp = new ComputerPlayer("player" + i+1, marks[i]); 
 			players[i] = cp;
 		}
 		
@@ -45,11 +45,13 @@ public class tttGame {
 	public void start() {
 		System.out.println("\ngame started...");
 		do {
+			print();
 			switchPlayer();
+			System.out.println("\nPlayer " + players[currentPlayerIndex].getMark() + "'s turn");
 			while(!this.board.makeMove(players[currentPlayerIndex].getMark(), 
 					players[currentPlayerIndex].selectRowValue(2), 
 					players[currentPlayerIndex].selectColValue(2))) {
-				System.out.println();
+				//System.out.println();
 				print();
 			}
 		}while(!gameover());
