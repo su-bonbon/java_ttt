@@ -54,10 +54,15 @@ public class Board implements Iboard {
 	}
 	
 	public void print() {
+		//System.out.println("l");
 		for(int i = 0; i < boxes.length; i++) {
-			if(i!=0 && i%boardRowSize == 0)  System.out.println();
+			if(i!=0 && i%boardRowSize == 0) {
+				System.out.println();
+				
+			}
 			boxes[i].print();
 		}
+		System.out.println();
 	}
 	public boolean makeMove(String mark, int row, int col) {
 		return boxes[row * this.boardRowSize + col].setPlaceHolder(mark);

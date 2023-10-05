@@ -18,7 +18,7 @@ public class tttGame {
 
 	private void setPlayer() {
 		for(int i  = 0; i < players.length; i++) {
-			ComputerPlayer cp = new ComputerPlayer("player" + i+1, marks[i]); 
+			HumanPlayer cp = new HumanPlayer("player" + i+1, marks[i]); 
 			players[i] = cp;
 		}
 		
@@ -47,18 +47,20 @@ public class tttGame {
 		do {
 			switchPlayer();
 			while(!this.board.makeMove(players[currentPlayerIndex].getMark(), 
-					players[currentPlayerIndex].selectRowValue(gameRowSize), 
-					players[currentPlayerIndex].selectColValue(gameColSize))) {
+					players[currentPlayerIndex].selectRowValue(2), 
+					players[currentPlayerIndex].selectColValue(2))) {
 				System.out.println();
 				print();
 			}
 		}while(!gameover());
-		print();
+		//print();
 	}
 	
 	private boolean gameover() {
 		if(isWinner()) {
-			System.out.println("\n" +this.marks[this.currentPlayerIndex] + " is Winner!");
+			System.out.println();
+			print();
+			System.out.println("\n" +this.marks[this.currentPlayerIndex] + " is Winner!\n");
 			return true;
 		} else if(board.isFull()) {
 			System.out.println("\nTIE");

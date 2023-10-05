@@ -14,9 +14,11 @@ public class HumanPlayer extends APlayer{
 	public int selectRowValue(int range) {
 		System.out.println("\nplease enter a valid row number (0 to " + range + ")");
 		int row;
+		
 		do {
 			row = input.nextInt();
 		}while(row < 0 && row > range);
+		
 		return row;
 	}
 	@Override
